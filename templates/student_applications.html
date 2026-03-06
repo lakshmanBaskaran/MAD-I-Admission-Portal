@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>My Applications</h3>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Application ID</th>
+<th>Drive ID</th>
+<th>Status</th>
+<th>Applied On</th>
+</tr>
+
+{% for app in applications %}
+
+<tr>
+
+<td>{{ app.id }}</td>
+<td>{{ app.drive_id }}</td>
+<td>{{ app.status }}</td>
+<td>{{ app.applied_on }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/student/dashboard" class="btn btn-secondary">
+Back to Dashboard
+</a>
+
+{% endblock %}

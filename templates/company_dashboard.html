@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Company Dashboard</h3>
+
+<hr>
+
+<h4>Create Placement Drive</h4>
+
+<form method="POST" action="/company/create_drive">
+
+<div class="mb-3">
+<label>Job Title</label>
+<input type="text" name="job_title" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Job Description</label>
+<textarea name="job_description" class="form-control" required></textarea>
+</div>
+
+<div class="mb-3">
+<label>Eligibility Criteria</label>
+<input type="text" name="eligibility" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>Application Deadline</label>
+<input type="date" name="deadline" class="form-control" required>
+</div>
+
+<button class="btn btn-primary">Create Drive</button>
+
+</form>
+
+<hr>
+
+<h4>Your Placement Drives</h4>
+
+<table class="table table-bordered">
+
+<tr>
+<th>ID</th>
+<th>Job Title</th>
+<th>Status</th>
+<th>Applications</th>
+</tr>
+
+{% for drive in drives %}
+
+<tr>
+
+<td>{{ drive.id }}</td>
+<td>{{ drive.job_title }}</td>
+<td>{{ drive.status }}</td>
+
+<td>
+<a href="/company/applications/{{ drive.id }}" class="btn btn-sm btn-info">
+View Applications
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

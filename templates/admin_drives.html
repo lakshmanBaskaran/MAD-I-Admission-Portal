@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Placement Drives</h3>
+
+<table class="table table-bordered mt-4">
+
+<tr>
+<th>ID</th>
+<th>Job Title</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for drive in drives %}
+
+<tr>
+<td>{{ drive.id }}</td>
+<td>{{ drive.job_title }}</td>
+
+<td>{{ drive.status }}</td>
+
+<td>
+
+{% if drive.status != "Approved" %}
+<a href="/admin/approve_drive/{{ drive.id }}" class="btn btn-success btn-sm">
+Approve
+</a>
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/admin/dashboard" class="btn btn-secondary">Back</a>
+
+{% endblock %}

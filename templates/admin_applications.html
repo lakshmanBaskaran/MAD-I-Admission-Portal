@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>All Applications</h3>
+
+<table class="table table-bordered mt-4">
+
+<tr>
+<th>ID</th>
+<th>Student ID</th>
+<th>Drive ID</th>
+<th>Status</th>
+<th>Applied On</th>
+</tr>
+
+{% for app in applications %}
+
+<tr>
+<td>{{ app.id }}</td>
+<td>{{ app.student_id }}</td>
+<td>{{ app.drive_id }}</td>
+<td>{{ app.status }}</td>
+<td>{{ app.applied_on }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/admin/dashboard" class="btn btn-secondary">Back</a>
+
+{% endblock %}
